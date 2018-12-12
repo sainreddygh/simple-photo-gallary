@@ -16,7 +16,7 @@ export default class Images extends React.Component {
             top: "3%",
             left: 0,
             width: "100%",     
-            fontSize: "20px",
+            fontSize: "30px",
             textAlign: "center"
         }
         let captionP ={
