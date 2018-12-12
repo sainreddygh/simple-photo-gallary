@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import images from "./resources/images";
+import ImageSlider from "./modules/Image-slider"
 import './App.css';
 
 class App extends Component {
@@ -8,7 +9,7 @@ class App extends Component {
     super(props);
     this.state={showGallary: false}
   }
-  openGallary=()=>{alert("working");this.setState({showGallary:true})}
+  openGallary=()=>{this.setState({showGallary:true})}
   render() {
     return (
       <div className="App">
@@ -25,6 +26,7 @@ class App extends Component {
           >
             Open Gallary
           </a>
+          {this.state.showGallary && <ImageSlider />}
 
         </header>
       </div>
