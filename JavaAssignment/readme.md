@@ -1,5 +1,5 @@
-//Sorting a collection of objects in java
-2 Main approaches for sorting pojos
+//Sorting a collection of objects in java.<br>
+### 2 Main approaches for sorting pojos
 
 1. writing custom sorting lofic with all new methods
 2. Using library sort logics(comparators);
