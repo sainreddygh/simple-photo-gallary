@@ -1,8 +1,24 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## React Image Slider
+
+A simple react application for image slider with the following features
+
+a. Mouse click on the left arrow and right arrow for navigation
+b. Swipe the images with the left click
+c. left and right arrow keys for Navigation
+d. Resize the window for the responsive layout
+e. Caption over the Image in the top center.
+
+To add different images, edit the src/resources/images.js.
+
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm i or npm install`
+
+Installs the dependencies needed for the application
 
 ### `npm start`
 

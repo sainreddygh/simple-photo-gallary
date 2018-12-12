@@ -18,20 +18,19 @@ class ImageSlider extends React.Component {
             x:0
         };
     }
-    rightClick=(isKeyUp)=>{
+    rightClick=(isKeyUp)=>{// keyUp is to identofy if its from keyUp instead of swiping or mouse click
         this.setState({currentImage: this.state.currentImage+1, transition: "0.5s",mouseDown:false, oldX:0, x:0});
-        debugger;
         if(this.state.currentImage === this.props.images.length-(isKeyUp==="keyUp" ? 1 : 2)){
             setTimeout(()=>{this.setState({currentImage: 1, transition: "0s"})}, 500)            
         }
     }    
-    leftClick=(isKeyUp)=>{
+    leftClick=(isKeyUp)=>{// keyUp is to identofy if its from keyUp instead of swiping or mouse click
         this.setState({currentImage: this.state.currentImage-1, transition: "0.5s",mouseDown:false, oldX:0, x:0});
         if(this.state.currentImage === (isKeyUp==="keyUp" ? 0 : 1)){
             setTimeout(()=>{this.setState({currentImage: this.props.images.length-2, transition: "0s"})}, 500)            
         }
     }    
-    componentDidMount() {
+    componentDidMount() {// code to get the size of the window for responsiveness
         this.updateWindowDimensions();
         window.addEventListener('resize', this.updateWindowDimensions);
         window.addEventListener('keyup', this.keyClick);
@@ -40,6 +39,7 @@ class ImageSlider extends React.Component {
         window.removeEventListener('resize', this.updateWindowDimensions);
         window.removeEventListener('keyup', this.keyClick);
     }
+    //Event handling methods
     mouseDown=(e)=>{
         e.preventDefault();
         this.setState({mouseDown:true, oldX: e.nativeEvent.offsetX});
@@ -129,7 +129,7 @@ class ImageSlider extends React.Component {
             zIndex:1001
         }        
         return ([
-            <div key="background-div" onClick={this.props.closeSlider} style={blurBackground}></div>,
+            <div key="background-div" onClick={this.props.closeSlider} style={blurBackground}></div>,//blurring the background page
             <div key="slider-div" 
                 onKeyUp={this.keyClick}
                 style={sliderContainer}>
