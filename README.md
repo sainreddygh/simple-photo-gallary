@@ -4,11 +4,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 A simple react application for image slider with the following features
 
-a. Mouse click on the left arrow and right arrow for navigation
-b. Swipe the images with the left click
-c. left and right arrow keys for Navigation
-d. Resize the window for the responsive layout
-e. Caption over the Image in the top center.
+a. Mouse click on the left arrow and right arrow for navigation<br>
+b. Swipe the images with the left click<br>
+c. left and right arrow keys for Navigation<br>
+d. Resize the window for the responsive layout<br>
+e. Caption over the Image in the top center.<br>
 
 To add different images, edit the src/resources/images.js.
 
