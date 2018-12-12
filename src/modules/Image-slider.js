@@ -1,15 +1,35 @@
 import React, { Component } from 'react';
+import {FaAngleLeft, FaAngleRight} from "react-icons/fa";
 
 class ImageSlider extends React.Component {
     constructor(props){
         super(props);
+        this.props.images.push(this.props.images[0]);
+        this.props.images.push(this.props.images[1]);
         this.state = { imageWidth: 0,
             imageHeight: 0, 
             posTop: 0, 
             posLeft:0, 
-            transition: "0.5s"
+            currentImage: this.props.images.length-2, 
+            transition: "0.5s",
+            mouseDown: false,
+            oldX:0,
+            x:0
         };
-    }  
+    }
+    rightClick=(isKeyUp)=>{
+        this.setState({currentImage: this.state.currentImage+1, transition: "0.5s",mouseDown:false, oldX:0, x:0});
+        debugger;
+        if(this.state.currentImage == this.props.images.length-(isKeyUp=="keyUp" ? 1 : 2)){
+            setTimeout(()=>{this.setState({currentImage: 1, transition: "0s"})}, 500)            
+        }
+    }    
+    leftClick=(isKeyUp)=>{
+        this.setState({currentImage: this.state.currentImage-1, transition: "0.5s",mouseDown:false, oldX:0, x:0});
+        if(this.state.currentImage == (isKeyUp=="keyUp" ? 0 : 1)){
+            setTimeout(()=>{this.setState({currentImage: this.props.images.length-2, transition: "0s"})}, 500)            
+        }
+    }    
     componentDidMount() {
         this.updateWindowDimensions();
         window.addEventListener('resize', this.updateWindowDimensions);
@@ -18,7 +38,34 @@ class ImageSlider extends React.Component {
     componentWillUnmount() {
         window.removeEventListener('resize', this.updateWindowDimensions);
         window.removeEventListener('keyup');
-    }  
+    }
+    mouseDown=(e)=>{
+        e.preventDefault();
+        this.setState({mouseDown:true, oldX: e.nativeEvent.offsetX});
+    }    
+    mouseUp=()=>{
+        if(this.state.x>40){
+            debugger;
+           this.rightClick() 
+        }else if(this.state.x<-40){
+            this.leftClick() 
+        }else{
+            this.setState({mouseDown:false, oldX:0, x:0});
+        }        
+    }
+    keyClick=(e)=>{
+        if(e.keyCode==37){
+            this.leftClick("keyUp")
+        }else if(e.keyCode==39){
+            this.rightClick("keyUp")
+        };
+    }
+    mouseMove=(e)=>{
+        e.preventDefault();
+        if(this.state.mouseDown){
+            this.setState({x: (this.state.oldX-e.nativeEvent.offsetX), transition: "0.1s"});
+        }
+    }    
     updateWindowDimensions=()=> {
         console.log(window.innerWidth);
         if(window.innerWidth<1000){            
@@ -56,7 +103,6 @@ class ImageSlider extends React.Component {
             height: this.state.imageHeight,
             overflowX: "hidden",
             display: "flex",
-            border: "white solid 2px",
             zIndex: 1000
         }
         let imageContainer ={
@@ -64,15 +110,39 @@ class ImageSlider extends React.Component {
             top:0,
             height: this.state.imageHeight,
             display: "flex",
-            left:-this.state.imageWidth*0,
+            left:-this.state.imageWidth*this.state.currentImage-this.state.x,
             transition: this.state.transition,
             cursor:"grab"
-        } 
+        }
+        //this.state.mouseDown ? imageContainer.cursor="grabbing" :  imageContainer.cursor="grab";
+        let leftArrow={
+            position: "absolute",
+            top:"45%",
+            left: "3%",
+            zIndex:1001
+        }
+        let rightArrow={
+            position: "absolute",
+            top:"45%",
+            right: "3%",     
+            zIndex:1001
+        }        
         return ([
             <div key="background-div" style={blurBackground}></div>,
-            <div key="slider-div"
+            <div key="slider-div" 
+                onKeyUp={this.keyClick}
                 style={sliderContainer}>
-                <div style={imageContainer}>
+                <div onClick={this.leftClick} style={leftArrow}>
+                    <FaAngleLeft size={40}/>
+                </div>
+                <div onClick={this.rightClick} style={rightArrow}>
+                    <FaAngleRight size={40}/>
+                </div>
+                <div onMouseMove={this.mouseMove} 
+                    onMouseLeave={this.mouseUp} 
+                    onMouseDown={this.mouseDown} 
+                    onMouseUp={this.mouseUp}
+                    style={imageContainer}>
                 </div>
             </div>
         ])

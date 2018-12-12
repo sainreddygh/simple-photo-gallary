@@ -26,7 +26,7 @@ class App extends Component {
           >
             Open Gallary
           </a>
-          {this.state.showGallary && <ImageSlider />}
+          {this.state.showGallary && <ImageSlider images={images}/>}
 
         </header>
       </div>
