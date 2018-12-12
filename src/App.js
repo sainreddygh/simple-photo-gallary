@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import images from "./resources/images";
-import ImageSlider from "./modules/Image-slider"
+import ImageSlider from "./modules/image-slider"
 import './App.css';
 
 class App extends Component {
@@ -10,6 +10,7 @@ class App extends Component {
     this.state={showGallary: false}
   }
   openGallary=()=>{this.setState({showGallary:true})}
+  closeGallary=()=>{this.setState({showGallary:false})}
   render() {
     return (
       <div className="App">
@@ -18,15 +19,15 @@ class App extends Component {
           <p>
             Simple Photo gallary Component in React
           </p>
-          <a
-            className="App-link"
+          <button
+            style={{backgroundColor: "white", color: "black"}}
             onClick={this.openGallary}
             target="_blank"
             rel="noopener noreferrer"
           >
             Open Gallary
-          </a>
-          {this.state.showGallary && <ImageSlider images={images}/>}
+          </button>
+          {this.state.showGallary && <ImageSlider closeSlider={this.closeGallary} images={images}/>}
 
         </header>
       </div>

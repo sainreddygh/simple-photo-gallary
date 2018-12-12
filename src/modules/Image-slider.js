@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Images from "./images-component";
 import {FaAngleLeft, FaAngleRight} from "react-icons/fa";
 
@@ -21,13 +21,13 @@ class ImageSlider extends React.Component {
     rightClick=(isKeyUp)=>{
         this.setState({currentImage: this.state.currentImage+1, transition: "0.5s",mouseDown:false, oldX:0, x:0});
         debugger;
-        if(this.state.currentImage == this.props.images.length-(isKeyUp=="keyUp" ? 1 : 2)){
+        if(this.state.currentImage === this.props.images.length-(isKeyUp==="keyUp" ? 1 : 2)){
             setTimeout(()=>{this.setState({currentImage: 1, transition: "0s"})}, 500)            
         }
     }    
     leftClick=(isKeyUp)=>{
         this.setState({currentImage: this.state.currentImage-1, transition: "0.5s",mouseDown:false, oldX:0, x:0});
-        if(this.state.currentImage == (isKeyUp=="keyUp" ? 0 : 1)){
+        if(this.state.currentImage === (isKeyUp==="keyUp" ? 0 : 1)){
             setTimeout(()=>{this.setState({currentImage: this.props.images.length-2, transition: "0s"})}, 500)            
         }
     }    
@@ -38,7 +38,7 @@ class ImageSlider extends React.Component {
     }    
     componentWillUnmount() {
         window.removeEventListener('resize', this.updateWindowDimensions);
-        window.removeEventListener('keyup');
+        window.removeEventListener('keyup', this.keyClick);
     }
     mouseDown=(e)=>{
         e.preventDefault();
@@ -55,9 +55,9 @@ class ImageSlider extends React.Component {
         }        
     }
     keyClick=(e)=>{
-        if(e.keyCode==37){
+        if(e.keyCode===37){
             this.leftClick("keyUp")
-        }else if(e.keyCode==39){
+        }else if(e.keyCode===39){
             this.rightClick("keyUp")
         };
     }
@@ -129,7 +129,7 @@ class ImageSlider extends React.Component {
             zIndex:1001
         }        
         return ([
-            <div key="background-div" style={blurBackground}></div>,
+            <div key="background-div" onClick={this.props.closeSlider} style={blurBackground}></div>,
             <div key="slider-div" 
                 onKeyUp={this.keyClick}
                 style={sliderContainer}>

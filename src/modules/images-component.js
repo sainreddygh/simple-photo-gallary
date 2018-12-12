@@ -40,7 +40,7 @@ export default class Images extends React.Component {
                             {i.caption}
                         </p>
                     </div>
-                    <img style={imageStyle} src={i.url}></img>
+                    <img alt="" style={imageStyle} src={i.url}></img>
                 </div>
             )
         })
