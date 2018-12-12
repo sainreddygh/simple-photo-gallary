@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Images from "./images-component";
 import {FaAngleLeft, FaAngleRight} from "react-icons/fa";
 
 class ImageSlider extends React.Component {
@@ -143,6 +144,7 @@ class ImageSlider extends React.Component {
                     onMouseDown={this.mouseDown} 
                     onMouseUp={this.mouseUp}
                     style={imageContainer}>
+                    <Images imgs={this.props.images} dimns={{imageWidth: this.state.imageWidth, imageHeight : this.state.imageHeight}}/>
                 </div>
             </div>
         ])
