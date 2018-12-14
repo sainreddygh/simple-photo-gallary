@@ -43,7 +43,8 @@ class ImageSlider extends React.Component {
     mouseDown=(e)=>{
         e.preventDefault();
         this.setState({mouseDown:true, oldX: e.nativeEvent.offsetX});
-    }    
+    }
+    //Common method for mouse leave or mouse out of the image 
     mouseUp=()=>{
         if(this.state.x>40){
             debugger;
@@ -66,7 +67,8 @@ class ImageSlider extends React.Component {
         if(this.state.mouseDown){
             this.setState({x: (this.state.oldX-e.nativeEvent.offsetX), transition: "0.1s"});
         }
-    }    
+    }
+    //Using window dimensions to adjust the inline CSS instead of media queries    
     updateWindowDimensions=()=> {
         console.log(window.innerWidth);
         if(window.innerWidth<1000){            
@@ -84,6 +86,7 @@ class ImageSlider extends React.Component {
         }
     }
     render(){
+        //Inline CSS with values changing based on the window size
         let blurBackground={
             position: "fixed",
             display: "block",
