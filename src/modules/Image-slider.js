@@ -114,6 +114,7 @@ class ImageSlider extends React.Component {
             top:0,
             height: this.state.imageHeight,
             display: "flex",
+            //Moving the image based on the mouse move when cicked and also the active image
             left:-this.state.imageWidth*this.state.currentImage-this.state.x,
             transition: this.state.transition,
             cursor:"grab"
