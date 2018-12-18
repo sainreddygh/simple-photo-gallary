@@ -28,9 +28,7 @@ export default class Images extends React.Component {
             width: this.props.dimns.imageWidth,
             height: this.props.dimns.imageHeight,
             border:"2px solid black",
-            display: "block",
-            margin: "0 auto",
-            boxSizing: "border-box"
+            display: "block"
         }
         let imgs = this.props.imgs.map((i,index)=>{
             return (
