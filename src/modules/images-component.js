@@ -33,11 +33,10 @@ export default class Images extends React.Component {
         let imgs = this.props.imgs.map((i,index)=>{
             return (
                 <div key={"key"+index} style={imageDivStyle}>
-                    <div style={captionDiv}>
+                    
                         <p style={captionP}>                        
                             {i.caption}
                         </p>
-                    </div>
                     <img alt="" style={imageStyle} src={i.url}></img>
                 </div>
             )
