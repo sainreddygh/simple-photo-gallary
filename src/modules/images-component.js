@@ -33,8 +33,8 @@ export default class Images extends React.Component {
             boxSizing: "border-box"
         }
         let imgs = this.props.imgs.map((i,index)=>{
-            return ([
-                <div key={"k]ey"+index} style={imageDivStyle}>
+            return (
+                <div key={"key"+index} style={imageDivStyle}>
                     <div style={captionDiv}>
                         <p style={captionP}>                        
                             {i.caption}
@@ -42,8 +42,6 @@ export default class Images extends React.Component {
                     </div>
                     <img alt="" style={imageStyle} src={i.url}></img>
                 </div>
-                <span> Sample text </span>
-            ]
             )
         })
         return (imgs);
