@@ -1,5 +1,6 @@
 import React from 'react';
 import Images from "./images-component";
+//Importing font Awesome icons
 import {FaAngleLeft, FaAngleRight} from "react-icons/fa";
 
 class ImageSlider extends React.Component {
