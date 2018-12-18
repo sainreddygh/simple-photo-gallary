@@ -10,6 +10,12 @@ export default class Images extends React.Component {
             position: "relative",
             width: this.props.dimns.imageWidth,
             maxHeight: this.props.dimns.imageHeight
+        }       
+        let outerDIvStyle={
+            height: this.props.dimns.imageHeight,
+            border:"2px solid black",
+            display: "block",
+            margin: "0 auto",
         }
         let captionDiv ={
             position: "absolute",
@@ -28,11 +34,14 @@ export default class Images extends React.Component {
             width: this.props.dimns.imageWidth,
             height: this.props.dimns.imageHeight,
             border:"2px solid black",
-            display: "block"
+            display: "block",
+            margin: "0 auto",
+            boxSizing: "border-box"
         }
         let imgs = this.props.imgs.map((i,index)=>{
             return (
                 <div key={"key"+index} style={imageDivStyle}>
+                    <div style="outerDivStyle">{i.caption}</div>
                     
                         <p style={captionP}>                        
                             {i.caption}
