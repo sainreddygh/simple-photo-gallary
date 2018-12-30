@@ -5,10 +5,11 @@ import java.util.Collections;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-//@SpringBootApplication
+
 public class PractiveApplication {
 	public static void main(String[] args) {
 		List<Person> persons = new ArrayList<Person>();
+		// Adding random person objects for the custom sorting
 		persons.add(new Person("ssn7", new GregorianCalendar(1990, 12, 15).getTime(), "fn2","ln3",4.1, 5.1));
 		persons.add(new Person("ssn2", new GregorianCalendar(1989, 12, 15).getTime(), "fn3","ln4",5.1, 6.1));
 		persons.add(new Person("ssn3", new GregorianCalendar(1991, 12, 15).getTime(), "fn1","ln5",6.1, 7.1));
