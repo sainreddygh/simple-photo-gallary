@@ -16,7 +16,7 @@ public class PractiveApplication {
 		persons.add(new Person("ssn5", new GregorianCalendar(1993, 12, 15).getTime(), "fn5","ln2",3.1, 9.1));
 		persons.add(new Person("ssn6", new GregorianCalendar(1994, 12, 15).getTime(), "fn6","ln6",8.1, 4.1));
         // Calling Person.sort method here and printing the sorted field
-		for(Person p : Person.sort(persons, "DOB", false)) {
+		for(Person p : Person.sort(persons, "lastName", false)) {
 			System.out.println(p.getDateOfBirth());
 		}
 	}
