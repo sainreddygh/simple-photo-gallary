@@ -91,7 +91,7 @@ public class Person {
 	    }
 	};
 
-	public static Comparator<Person> dobDsceComparator = new Comparator<Person>() {
+	public static Comparator<Person> dobDescComparator = new Comparator<Person>() {
 		public int compare(Person p1, Person p2) {
 		   Date date1 = p1.getDateOfBirth();
 		   Date date2 = p2.getDateOfBirth();
@@ -135,7 +135,7 @@ public class Person {
 		   return height1.compareTo(height2);
 	    }
 	};
-	public static Comparator<Person> heightDsceComparator = new Comparator<Person>() {
+	public static Comparator<Person> heightDescComparator = new Comparator<Person>() {
 		public int compare(Person p1, Person p2) {
 		   Double height1 = p1.getHeightIn();
 		   Double height2 = p2.getHeightIn();
@@ -151,7 +151,7 @@ public class Person {
 	    }
 	};
 
-	public static Comparator<Person> weightDsceComparator = new Comparator<Person>() {
+	public static Comparator<Person> weightDescComparator = new Comparator<Person>() {
 		public int compare(Person p1, Person p2) {
 		   Double weight1 = p1.getWeightLb();
 		   Double weight2 = p2.getWeightLb();
@@ -170,7 +170,7 @@ public class Person {
 			if(ascending) {
 				Collections.sort(people, Person.dobAsceComparator);
 			}else {
-				Collections.sort(people, Person.dobDsceComparator);
+				Collections.sort(people, Person.dobDescComparator);
 			}
 		}else if(sortingField.equals("firstName")) {
 			if(ascending) {
@@ -188,13 +188,13 @@ public class Person {
 			if(ascending) {
 				Collections.sort(people, Person.heightAsceComparator);
 			}else {
-				Collections.sort(people, Person.heightDsceComparator);
+				Collections.sort(people, Person.heightDescComparator);
 			}
 		}else if(sortingField.equals("weight")) {
 			if(ascending) {
 				Collections.sort(people, Person.weightAsceComparator);
 			}else {
-				Collections.sort(people, Person.weightDsceComparator);
+				Collections.sort(people, Person.weightDescComparator);
 			}
 		}
 		return people;
