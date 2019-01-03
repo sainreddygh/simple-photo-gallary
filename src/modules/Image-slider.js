@@ -22,13 +22,13 @@ class ImageSlider extends React.Component {
     rightClick=(isKeyUp)=>{// keyUp is to identofy if its from keyUp instead of swiping or mouse click
         this.setState({currentImage: this.state.currentImage+1, transition: "0.5s",mouseDown:false, oldX:0, x:0});
         if(this.state.currentImage === this.props.images.length-(isKeyUp==="keyUp" ? 1 : 2)){
-            setTimeout(()=>{this.setState({currentImage: 1, transition: "0s"})}, 500)            
+            setTimeout(()=>{this.setState({currentImage: 1, transition: "0s"})}, 600)            
         }
     }    
     leftClick=(isKeyUp)=>{// keyUp is to identofy if its from keyUp instead of swiping or mouse click
         this.setState({currentImage: this.state.currentImage-1, transition: "0.5s",mouseDown:false, oldX:0, x:0});
         if(this.state.currentImage === (isKeyUp==="keyUp" ? 0 : 1)){
-            setTimeout(()=>{this.setState({currentImage: this.props.images.length-2, transition: "0s"})}, 500)            
+            setTimeout(()=>{this.setState({currentImage: this.props.images.length-2, transition: "0s"})}, 600)            
         }
     }    
     componentDidMount() {// code to get the size of the window for responsiveness
