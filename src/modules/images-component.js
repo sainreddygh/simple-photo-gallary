@@ -15,8 +15,9 @@ export default class Images extends React.Component {
             position: "absolute",
             top: "3%",
             left: 0,
-            width: "60%",     
+            width: "100%",     
             fontSize: "30px",
+            textAlign: "center"
         }
         let captionP ={
             display: "inline",
@@ -33,7 +34,7 @@ export default class Images extends React.Component {
         }
         let imgs = this.props.imgs.map((i,index)=>{
             return (
-                <div key={"k-"+index} style={imageDivStyle}>
+                <div key={"key"+index} style={imageDivStyle}>
                     <div style={captionDiv}>
                         <p style={captionP}>                        
                             {i.caption}
