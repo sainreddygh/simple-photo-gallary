@@ -72,7 +72,7 @@ class ImageSlider extends React.Component {
     //Using window dimensions to adjust the inline CSS instead of media queries    
     updateWindowDimensions=()=> {
         console.log(window.innerWidth);
-        if(window.innerWidth<1000){            
+        if(window.innerWidth<800){            
             this.setState({ imageWidth: window.innerWidth,
                 imageHeight: window.innerWidth*0.8,
                 posTop: 0,
