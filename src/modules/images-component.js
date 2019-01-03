@@ -15,9 +15,8 @@ export default class Images extends React.Component {
             position: "absolute",
             top: "3%",
             left: 0,
-            width: "100%",     
-            fontSize: "30px",
-            textAlign: "center"
+            width: "600%",     
+            fontSize: "30px"
         }
         let captionP ={
             display: "inline",
